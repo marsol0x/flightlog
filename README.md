@@ -5,5 +5,5 @@ This is a private project for learning Ruby. We will be building a website for f
 
 Dependencies
 ------------
-Backend  : Ruby + Senatra + ActiveRecord + PostgreSQL  
+Backend  : Ruby + Sinatra + ActiveRecord + PostgreSQL  
 Frontend : Twitter Bootstrap + JQuery
