@@ -4,7 +4,9 @@ package { 'postgresql':
 
 $ruby_gems = [
   'sinatra',
-  'activerecord'
+  'activerecord',
+  'haml',
+  'tilt'
 ]
 
 package { $ruby_gems:
