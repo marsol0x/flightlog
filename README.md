@@ -7,3 +7,7 @@ Dependencies
 ------------
 Backend  : Ruby + Sinatra + ActiveRecord + PostgreSQL  
 Frontend : Twitter Bootstrap + JQuery
+
+Libraries
+---------
+https://github.com/janko-m/sinatra-activerecord
