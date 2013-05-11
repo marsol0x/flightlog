@@ -1,13 +1,23 @@
-require 'sinatra'
+require 'sinatra/base'
 require 'haml'
 
-# This is so Sinatra's built-in web server will listen outside
-# of localhost. So to use the server through vagrant, we need this.
-set :bind, '0.0.0.0' 
+require_relative 'login'
 
-# Static location
-set :public_folder, File.dirname(__FILE__) + '/static'
+class FlightLog < Sinatra::Base
+  use Login
+  # This is so Sinatra's built-in web server will listen outside
+  # of localhost. So to use the server through vagrant, we need this.
+  set :bind, '0.0.0.0' 
 
-get '/' do
-  haml :index, :format => :html5, :locals => { :message => "Hello!" }
+  # Static location
+  set :public_folder, File.dirname(__FILE__) + '/static'
+
+  # HAML Settings
+  set :haml, :format => :html5
+
+  get '/' do
+    haml :index, :locals => { :message => "A message!" }
+  end
+
+  run! if app_file == $0
 end
