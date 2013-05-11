@@ -1,0 +1,29 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %title Flight Log
+    %meta{:name    => "viewport",
+          :content => "width=device-width, initial-scale=1.0"}
+    %link{:rel  => "stylesheet",
+          :href => "css/bootstrap.min.css",
+          :type => "text/css"}
+    %link{:rel  => "stylesheet",
+          :href => "css/bootstrap-responsive.min.css",
+          :type => "text/css"}
+  %body
+    .container
+      .navbar
+        .navbar-inner
+          %a.brand{:href => '#'} FlightLog
+          %ul.nav
+            %li.active<
+              %a{:href => '#'} Home
+            %li<
+              %a{:href => '#'} Link
+            %li<
+              %a{:href => '#'} Link
+
+      =yield
+
+  %script{:type => "text/javascript",
+          :src  => "js/jquery-2.0.0.min.js"}
