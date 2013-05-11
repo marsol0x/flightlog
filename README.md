@@ -11,3 +11,4 @@ Frontend : Twitter Bootstrap + JQuery
 Libraries
 ---------
 https://github.com/janko-m/sinatra-activerecord
+https://github.com/jsmestad/sinatra_warden
