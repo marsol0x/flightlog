@@ -6,7 +6,8 @@ $ruby_gems = [
   'sinatra',
   'activerecord',
   'haml',
-  'tilt'
+  'tilt',
+  'rerun'
 ]
 
 package { $ruby_gems:
