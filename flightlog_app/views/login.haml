@@ -1,1 +1,15 @@
-%h3 Login Screen
+%form.form-horizontal{:action => '/login', :method => "POST"}
+  %legend Login
+  - if locals.has_key? :error
+    %h5{:style => "color:red;"} Invalid Email or Password
+  .control-group
+    %label.control-label{:for => "inputEmail"} Email
+    .controls
+      %input#inputEmail{:name => "email", :type => "text", :placeholder => "Email"}
+  .control-group
+    %label.control-label{:for => "inputPassword"} Password
+    .controls
+      %input{:name => "password", :type => "password", :placeholder => "Password"}
+  .control-group
+    .controls
+      %button.btn.btn-primary{:type => "submit"} Login

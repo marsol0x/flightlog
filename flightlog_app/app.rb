@@ -1,9 +1,11 @@
 require 'sinatra/base'
+require 'sinatra/cookies'
 require 'haml'
 
 require_relative 'login'
 
 class FlightLog < Sinatra::Base
+  helpers Sinatra::Cookies
   use Login
   # This is so Sinatra's built-in web server will listen outside
   # of localhost. So to use the server through vagrant, we need this.
@@ -16,7 +18,7 @@ class FlightLog < Sinatra::Base
   set :haml, :format => :html5
 
   get '/' do
-    haml :index, :locals => { :message => "A message!" }
+    haml :index, :locals => { :message => cookies[:session_id] }
   end
 
   run! if app_file == $0
