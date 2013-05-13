@@ -8,7 +8,9 @@ Vagrant.configure("2") do |config|
 
   config.vm.box = "flightlog"
   config.vm.box_url = "https://www.dropbox.com/s/0yd23dwyafnpp24/flightlog.box"
-  config.vm.provision :puppet
+  config.vm.provision :puppet do |puppet|
+    puppet.module_path = "manifests/modules"
+  end
 
   config.vm.network :forwarded_port, guest: 4567, host: 4567
 end
