@@ -1,0 +1,14 @@
+{
+	"folders":
+	[
+		{
+			"path": "flightlog_app"
+		}
+	],
+    "settings":
+    {
+        "tab_size": 2,
+        "translate_tabs_to_spaces": true,
+        "trim_trailing_whitespace_on_save": true
+    }
+}
