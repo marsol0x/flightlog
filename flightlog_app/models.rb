@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
-  def email=(new_email)
+  def self.email=(new_email)
     self.email = new_email.downcase
   end
 
@@ -35,7 +35,9 @@ end
 class Session < ActiveRecord::Base
   belongs_to :user
 
-  def before_save
+  before_save :set_session
+
+  def set_session
     @session ||= SecureRandom.hex(32)
     self.session_id = @session
   end
