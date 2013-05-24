@@ -14,14 +14,17 @@
     .container
       .navbar
         .navbar-inner
-          %a.brand{:href => '#'} FlightLog
+          %a.brand{:href => '/'} FlightLog
           %ul.nav
-            %li.active<
-              %a{:href => '#'} Home
+            %li#homeMenu<
+              %a{:href => '/'} Home
             %li<
               %a{:href => '#'} Link
             %li<
               %a{:href => '#'} Link
+          %ul.pull-right.nav
+            %li#loginMenu<
+              %a{:href => '/login'} Login
 
       =yield
 

@@ -1,3 +1,6 @@
+%script{:type => "text/javascript"}
+  document.getElementById("loginMenu").className = "active"
+
 %form.form-horizontal{:action => '/login', :method => "POST"}
   %legend Login
   - if locals.has_key? :error
@@ -5,7 +8,7 @@
   .control-group
     %label.control-label{:for => "inputEmail"} Email
     .controls
-      %input#inputEmail{:name => "email", :type => "text", :placeholder => "Email"}
+      %input#inputEmail{:name => "email", :type => "text", :placeholder => "Email", :autofocus => "true"}
   .control-group
     %label.control-label{:for => "inputPassword"} Password
     .controls
