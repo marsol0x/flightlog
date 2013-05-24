@@ -17,8 +17,17 @@ class FlightLog < Sinatra::Base
   # HAML Settings
   set :haml, :format => :html5
 
+  # Make sure the user is logged in
+  before do
+      if Session.find_by_session_id(cookies[:session_id]).expires > DateTime.now
+      pass
+    else
+      redirect '/login'
+    end
+  end
+
   get '/' do
-    haml :index, :locals => { :message => cookies[:session_id] }
+    haml :index, :locals => { :message => User.find_by_id(Session.find_by_session_id(cookies[:session_id]).user_id).email }
   end
 
   run! if app_file == $0

@@ -18,8 +18,6 @@ class Login < Sinatra::Base
   end
 
   post '/login' do
-#    session = Session.where(:id => 2).first
-#    cookies[:session_id] = session.session_id
     if User.authenticate(params[:email], params[:password])
       user = User.where(:email => params[:email]).first
       session = user.session.new
