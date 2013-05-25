@@ -3,6 +3,8 @@ require 'sinatra/cookies'
 require 'haml'
 
 require_relative 'login'
+require_relative 'models/user'
+require_relative 'models/session'
 
 class FlightLog < Sinatra::Base
   helpers Sinatra::Cookies
@@ -19,7 +21,7 @@ class FlightLog < Sinatra::Base
 
   # Make sure the user is logged in
   before do
-    redirect '/login' unless Session.find_by_session_id(cookies[:session_id]).expires > DateTime.now
+    redirect '/login' unless cookies.has_key?("session_id") and ( not (s = Session.find_by_session_id(cookies[:session_id])).nil? and s.expires > DateTime.now)
   end
 
   get '/' do
