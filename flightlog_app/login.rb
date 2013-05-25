@@ -2,7 +2,8 @@ require 'sinatra/base'
 require 'sinatra/cookies'
 require 'haml'
 
-require_relative 'models'
+require_relative 'models/user'
+require_relative 'models/session'
 
 class Login < Sinatra::Base
   helpers Sinatra::Cookies

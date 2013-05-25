@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'bcrypt'
-require 'securerandom'
 
 set :database, 'postgres://flightlog:flightlog@localhost/flightlog'
 
@@ -32,13 +31,3 @@ class User < ActiveRecord::Base
   end
 end
 
-class Session < ActiveRecord::Base
-  belongs_to :user
-
-  before_save :set_session
-
-  def set_session
-    @session ||= SecureRandom.hex(32)
-    self.session_id = @session
-  end
-end
