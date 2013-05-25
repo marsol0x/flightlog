@@ -19,11 +19,7 @@ class FlightLog < Sinatra::Base
 
   # Make sure the user is logged in
   before do
-      if Session.find_by_session_id(cookies[:session_id]).expires > DateTime.now
-      pass
-    else
-      redirect '/login'
-    end
+    redirect '/login' unless Session.find_by_session_id(cookies[:session_id]).expires > DateTime.now
   end
 
   get '/' do
